@@ -112,4 +112,80 @@ Instala ffmpeg y agrégalo al PATH.
 Uso educativo y experimental.
 
 
-Si quieres, también puedo hacerte una versión más profesional estilo open-source (con badges, estructura más limpia y sección de instalación automática de modelos).
+-------------------------------------------------------------------------------------------
+
+
+🎧 Segmentación de Audio (Recomendado Antes de Entrenar)
+
+Si tienes un audio largo (10, 15, 20 minutos o más), es altamente recomendable segmentarlo antes de entrenar para obtener mejores resultados.
+
+Los archivos largos pueden:
+
+Reducir la eficiencia del entrenamiento
+
+Hacer inestable la extracción de F0
+
+Aumentar el uso de memoria
+
+Reducir la consistencia de la voz
+
+Para un mejor rendimiento en RVC, divide las grabaciones largas en segmentos de 45 segundos.
+
+🖥 Cómo Segmentar tu Audio
+
+Este proyecto incluye una herramienta con interfaz gráfica en Python:
+
+segmenter_ui.py
+Pasos:
+
+Ejecuta el programa:
+
+python segmenter_ui.py
+
+Selecciona el audio completo
+Ejemplo:
+
+voz18min.wav
+
+Elige la carpeta donde se guardarán los audios segmentados.
+
+Haz clic en Segmentar.
+
+📂 Ejemplo de Resultado
+
+Si tu archivo original es:
+
+voz18min.wav
+
+El programa generará:
+
+voz18min_000.wav
+voz18min_001.wav
+voz18min_002.wav
+...
+
+Cada archivo:
+
+Tendrá una duración de 45 segundos
+
+Estará convertido a 40kHz
+
+Será mono (1 canal)
+
+Será WAV 16-bit PCM
+
+Estará listo para entrenar en RVC
+
+✅ ¿Por Qué Mejora los Resultados?
+
+Segmentar audios largos:
+
+Mejora la variación del dataset
+
+Hace más estable la extracción de tono (F0)
+
+Reduce el overfitting
+
+Produce modelos de voz más limpios y consistentes
+
+Para entrenar voz hablada (10–30 minutos en total), la segmentación es altamente recomendable.
